@@ -1,0 +1,179 @@
+<!doctype html>
+<!-- Neal McAneney - 2017 -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MK - Services</title>
+<link rel="stylesheet" href="Css/icw.css">
+
+<script type="text/javascript" src="myScript.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body onload="loadDate()">
+<div>
+  <header>
+    <h1>Mechanical Keyboards</h1>
+  </header>
+</div>
+<div class="container">
+  <div id="navMenu" class="firstFloat navBar">
+    <nav>
+      <ul>
+        <li><a href="index.html"        class="menuButtons">Home</a></li>
+        <li><a href="types.html"        class="menuButtons">Types</a></li>
+        <li><a href="layouts.html"      class="menuButtons">Layouts</a></li>
+        <li><a href="services.html"     class="menuButtons">Services</a></li>
+        <li><a href="about.html"        class="menuButtons">About</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="secondFloat">
+    <!-- Main Content -->
+    <h2>Services</h2>
+    <div class="container">
+      <div class="serviceNewsLetter">
+        <h3>News Letter</h3>
+        <form action="#">
+          <table>
+            <tr>
+              <td>
+                <div class="container">
+                  <fieldset id="fldUserData" class="fldUserData">
+                    <h4>Personal Info</h4>
+                    <div>
+                      <label>Name: </label>
+                      <input type="text" name="txtFullName" autocomplete="name">
+                    </div>
+                    <div>
+                      <label>Email: </label>
+                      <input type="text" name="txtEmail" autocomplete="email">
+                    </div>
+                    <div>
+                      <label>Address: </label>
+                      <input type="text" name="txtAddress" >
+                    </div>
+                    <div>
+                      <label>Postal: </label>
+                      <input type="text" name="txtPostal" autocomplete="postal-code">
+                    </div>
+                    <div>
+                      <label>City: </label>
+                      <input type="text" name="txtProvince" autocomplete="address-level2">
+                    </div>
+                    <div>
+                      <label>Province: </label>
+                      <input type="text" name="txtProvince" autocomplete="address-level1">
+                    </div>
+                    <div>
+                      <label>New Products</label>
+                      <input type="checkbox" name="chkNewProducts" value="products">
+                    </div>
+                    <div>
+                      <label>News &amp; Updates</label>
+                      <input type="checkbox" name="chkUpdates" value="updates">
+                    </div>
+                    <br>
+                    <div>
+                      <label>How did you find us?</label>
+                      <textarea name="txtAreaFeedback" rows="3" cols="21" wrap="hard" maxlength="60"></textarea>
+                    </div>
+                  </fieldset>
+                  <fieldset id="fldMailing">
+                    <h4>How would you like to recieve updates?</h4>
+                    <div>
+                      <label>Email: </label>
+                      <input type="radio" name="radio" value="email">
+                    </div>
+                    <div>
+                      <label>Physical Mail: </label>
+                      <input type="radio" name="radio" value="physicalMail">
+                    </div>
+                  </fieldset>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div class="servicePurchase">
+        <h3>Purchase</h3>
+        <form action="#">
+          <table>
+            <tr>
+              <td>
+                <div class="container">
+                  <fieldset id="fldShippingData" class="fldUserData">
+                    <h4>Personal Info</h4>
+                    <div>
+                      <label>Name: </label>
+                      <input type="text" name="txtFullName" autocomplete="name">
+                    </div>
+                    <div>
+                      <label>Shipping Address: </label>
+                      <input type="text" name="txtAddress">
+                    </div>
+                    <br>
+                    <div>
+                      <label>Postal: </label>
+                      <input type="text" name="txtPostal" autocomplete="postal-code">
+                    </div>
+                    <div>
+                      <label>City: </label>
+                      <input type="text" name="txtProvince" autocomplete="address-level2">
+                    </div>
+                  </fieldset>
+                  <fieldset id="fldKeyboard">
+                    <div id="SwitchTypes">
+                      <h4>What type of keyboard would you like?</h4>
+                      <label>Switch Types: </label>
+                      <select name="lstBoxUnits">
+                        <option value="MxRed">Mx Red</option>
+                        <option value="MxBrown">Mx Brown</option>
+                        <option value="MxBlue">Mx Blue</option>
+                        <option value="MxBlack">Mx Black</option>
+                        <option value="MxGreen">Mx Green</option>
+                        <option value="MxWhite">Mx White</option>
+                        <option value="MxGrey">Mx Grey</option>
+                        <option value="MxClear">Mx Clear</option>
+                      </select>
+                    </div>
+                    <div id="KeyboardSize">
+                      <label>Keyboard Size: </label>
+                      <select name="lstBoxUnits">
+                        <option value="100">100%</option>
+                        <option value="80">80%</option>
+                        <option value="60">60% </option>
+                        <option value="40">40% </option>
+                      </select>
+                    </div>
+                    <div id="KeycapPlastic">
+                      <div>
+                        <label>ABS Caps</label>
+                        <input type="radio" name="abs" value="ABS">
+                      </div>
+                      <div>
+                        <label>PBT Caps</label>
+                        <input type="radio" name="pbt" value="PBT">
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <footer>
+    Neal McAneney - <a href="mailto:neal.mccallmcaneney@student.sl.on.ca">neal.mccallmcaneney@student.sl.on.ca</a> - 2017&#9400;
+    <br>
+    <span id="date">
+      Todays Date: (Pending JS)
+    </span>
+  </footer>
+</div>
+</body>
+</html>

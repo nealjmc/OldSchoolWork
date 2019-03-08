@@ -1,0 +1,99 @@
+<!doctype html>
+<!-- Neal McAneney - 2017 -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MK - Types</title>
+<link rel="stylesheet" href="Css/icw.css">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+<script type="text/javascript" src="myScript.js"></script>
+</head>
+<body onload="loadDate()">
+<div>
+<header>
+  <h1>Mechanical Keyboards</h1>
+</header>
+</div>
+<div class="container">
+<div id="navMenu" class="firstFloat navBar">
+  <nav>
+    <ul>
+      <li><a href="index.html"        class="menuButtons">Home</a></li>
+      <li><a href="types.html"        class="menuButtons">Types</a></li>
+      <li><a href="layouts.html"      class="menuButtons">Layouts</a></li>
+      <li><a href="services.html"     class="menuButtons">Services</a></li>
+      <li><a href="about.html"        class="menuButtons">About</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="secondFloat">
+  <!-- Main Content -->
+  <h2>Types</h2>
+  <p>There are many different types of keyboards in this world. Some of them are big while others are small. Most keyboards have either a rubber dome, or a membrane type connection to the main PCB. These are cheap and easy to make for the normal consumer keyboard. </p>
+
+  <p>Mechanical Keyboards have physical switches connecting to the main PCB on the board. This means that a linier switch is pressed down on the board, connecting to the main PCB, finishing a circuit and sending a keystroke to the computer.</p>
+  <p style="text-align: center;">
+    <b>cN - centinewton. 1cN = One hundrenth of a newton. One newton = 1kg/(meter/second squared)</b>
+  </p>
+  <table class="switchTypeTable" id="switchTypeTable">
+    <tr>
+      <td style=" height: 2em;" colspan="8"><button type="button" name="button" onclick="toggleColor()">Change Table</button></td>
+    </tr>
+    <tr>
+      <th>Red</th>
+      <th>Brown</th>
+      <th>Blue</th>
+      <th>Black</th>
+      <th>Green</th>
+      <th>White</th>
+      <th>Grey</th>
+      <th>Clear</th>
+    </tr>
+    <tr>
+      <td>45cN</td>
+      <td>45cN</td>
+      <td>50cN</td>
+      <td>60cN</td>
+      <td>80cN</td>
+      <td>80cN</td>
+      <td>80cN</td>
+      <td>95cN</td>
+    </tr>
+    <tr id="tblMechSwitches">
+      <td><img  src="images/MX-RED.jpg" alt="Mx-Red"></td>
+      <td><img  src="images/MX-BROWN.jpg" alt="Mx-Brown"></td>
+      <td><img  src="images/MX-BLUE.jpg" alt="MX-Blue"></td>
+      <td><img  src="images/MX-BLACK.jpg" alt="Mx-Black"></td>
+      <td><img  src="images/MX-GREEN.jpg" alt="Mx-Green"></td>
+      <td><img  src="images/MX-WHITE.jpg" alt="Mx-White"></td>
+      <td><img  src="images/MX-GRAY.jpg" alt="Mx-Gray"></td>
+      <td><img  src="images/MX-CLEAR.jpg" alt="Mx-Cler"></td>
+
+    </tr>
+    <tr>
+      <td>light</td>
+      <td>light</td>
+      <td>light</td>
+      <td>stiff</td>
+      <td>stiff</td>
+      <td>stiff</td>
+      <td>stiff</td>
+      <td>stiff</td>
+    </tr>
+  </table>
+
+
+</div>
+</div>
+<div class="footer">
+<footer>
+  Neal McAneney - <a href="mailto:neal.mccallmcaneney@student.sl.on.ca">neal.mccallmcaneney@student.sl.on.ca</a> - 2017&#9400;
+  <br>
+  <span id="date">
+    Todays Date: (Pending JS)
+  </span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+============================
+Results of guessing game for: Neal
+Number to guess: 2
+Number of tries: 2
+Number not guessed..
+============================
