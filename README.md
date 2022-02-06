@@ -1,2 +1,3 @@
 # OldSchoolWork
-Old school work from first and second semesters of SLC
+
+Old school work from my time at St. Lawrence College. Various work form labs to assignments
