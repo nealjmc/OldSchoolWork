@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cancel Flights</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+    <h1>Cancel Flights</h1>
+    <form>
+      <button formaction="/" class="btn btn-secondary">Home</button>
+    </form>
+    <br />
+    <div>
+      <h3>Flight List</h3>
+      <div id="flightList"></div>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Origin</th>
+              <th scope="col">Destination</th>
+              <th scope="col">Departure Time</th>
+              <th scope="col">Guests</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr th:each="flight : ${flightList}">
+              <td th:text="${flight.origin}" scope="row"></td>
+              <td th:text="${flight.destination}"></td>
+              <td th:text="${flight.time}"></td>
+              <td th:text="${flight.people}"></td>
+              <td>
+                <button
+                  th:data-people="${flight.people}"
+                  th:data-guid="${flight.id}"
+                  class="btn btn-primary"
+                >
+                  Cancel
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      $('button').click(function() {
+        let uuid = $(this).attr('data-guid')
+        let people = $(this).attr('data-people')
+        people = Number.parseInt(people)
+        people -= +1
+        $.post('/bookings/reserve', {
+          uuid,
+          people,
+          function(res) {
+            window.location.reload()
+          }
+        })
+      })
+    </script>
+  </body>
+</html>

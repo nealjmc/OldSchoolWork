@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cancel Flights</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"
+      integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="container">
+    <h1>Cancel Flights</h1>
+    <form>
+      <button formaction="/" class="btn btn-secondary">Home</button>
+    </form>
+    <br />
+    <div>
+      <h3>Flight List</h3>
+      <div id="flightList"></div>
+      <div>
+        <span id="loaderIcon"></span>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Origin</th>
+              <th scope="col">Destination</th>
+              <th scope="col">Departure Time</th>
+              <th scope="col">Guests</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr th:each="flight : ${flightList}">
+              <td
+                th:class="${flight.isCanceled} ? bg-danger : placeholderclass"
+                th:text="${flight.origin}"
+                scope="row"
+              ></td>
+              <td
+                th:class="${flight.isCanceled} ? bg-danger : placeholderclass"
+                th:text="${flight.destination}"
+              ></td>
+              <td
+                th:class="${flight.isCanceled} ? bg-danger : placeholderclass"
+                th:text="${flight.time}"
+              ></td>
+              <td
+                th:class="${flight.isCanceled} ? bg-danger : placeholderclass"
+                th:text="${flight.people}"
+              ></td>
+              <td
+                th:class="${flight.isCanceled} ? bg-danger : placeholderclass"
+              >
+                <span
+                  th:text="${flight.cancelReason} "
+                  th:hidden="${flight.isCanceled} ? false : true"
+                ></span>
+                <button
+                  th:hidden="${flight.isCanceled} ? true : false"
+                  type="button"
+                  class="btn btn-outline-danger"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  data-type="flightCancel"
+                  th:data-guid="${flight.id}"
+                >
+                  Cancel
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <button
+                id="cancelMechanical"
+                class="btn btn-outline-danger"
+                data-dismiss="modal"
+              >
+                Mechnical Failure
+              </button>
+              <button
+                id="cancelWeather"
+                class="btn btn-outline-danger"
+                data-dismiss="modal"
+              >
+                Bad Weather
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <script>
+        let uid
+        $('button').click(function() {
+          var type = $(this).attr('data-type')
+          if (type == 'flightCancel') {
+            uid = $(this).attr('data-guid')
+            console.log($(this).attr('data-guid'))
+          }
+        })
+        $('#cancelMechanical').click(() => {
+          console.log('hememmem')
+          $.post('cancel', {
+            uid,
+            cancelReason: 'Mechnical issues',
+            function(res) {
+              window.location.reload()
+            }
+          })
+          window.location.reload()
+        })
+        $('#cancelWeather').click(() => {
+          $.post('cancel', {
+            uid,
+            cancelReason: 'Weather issues',
+            function(res) {
+              console.log(res)
+            }
+          })
+          window.location.reload()
+        })
+      </script>
+    </div>
+  </body>
+</html>
